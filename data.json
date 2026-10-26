@@ -1,0 +1,189 @@
+{
+  "rooms": [
+    {
+      "id": "rm-1",
+      "name": "Studio A",
+      "building": "Music Wing",
+      "number": "101",
+      "type": "Studio"
+    },
+    {
+      "id": "rm-2",
+      "name": "Live Room B",
+      "building": "Music Wing",
+      "number": "102",
+      "type": "Rehearsal Room"
+    },
+    {
+      "id": "rm-3",
+      "name": "Pod 1",
+      "building": "Media Center",
+      "number": "201",
+      "type": "Production Pod"
+    },
+    {
+      "id": "rm-4",
+      "name": "Main Lecture Hall",
+      "building": "Central Block",
+      "number": "G05",
+      "type": "Teaching Space"
+    },
+    {
+      "id": "rm-5",
+      "name": "Central Gear Store",
+      "building": "Central Block",
+      "number": "G01",
+      "type": "Store"
+    }
+  ],
+  "assets": [
+    {
+      "id": "ast-1",
+      "code": "MIC-001",
+      "serial": "SN-88231",
+      "manufacturer": "Neumann",
+      "model": "U87 Ai",
+      "category": "Microphone",
+      "subcategory": "Condenser",
+      "condition": "Working",
+      "location": "Studio A",
+      "bookedTo": "Sarah Connor",
+      "perishablesHistory": []
+    },
+    {
+      "id": "ast-2",
+      "code": "MIC-002",
+      "serial": "SN-88232",
+      "manufacturer": "AKG",
+      "model": "C414",
+      "category": "Microphone",
+      "subcategory": "Condenser",
+      "condition": "Needs Attention",
+      "location": "Live Room B",
+      "bookedTo": "",
+      "perishablesHistory": []
+    },
+    {
+      "id": "ast-3",
+      "code": "SYN-001",
+      "serial": "SN-40012",
+      "manufacturer": "Moog",
+      "model": "Subsequent 37",
+      "category": "Synth",
+      "subcategory": "Analog",
+      "condition": "Working",
+      "location": "Pod 1",
+      "bookedTo": "",
+      "perishablesHistory": []
+    },
+    {
+      "id": "ast-4",
+      "code": "DRM-001",
+      "serial": "SN-10293",
+      "manufacturer": "Pearl",
+      "model": "Export Kick 22\"",
+      "category": "Drums",
+      "subcategory": "Kick",
+      "condition": "Working",
+      "location": "Live Room B",
+      "bookedTo": "",
+      "perishablesHistory": [
+        {
+          "name": "Remo Powerstroke 3 22\" Head",
+          "assignedAt": "2026-10-01 10:00"
+        }
+      ]
+    },
+    {
+      "id": "ast-5",
+      "code": "DRM-002",
+      "serial": "SN-10294",
+      "manufacturer": "Pearl",
+      "model": "Export Snare 14\"",
+      "category": "Drums",
+      "subcategory": "Snare",
+      "condition": "Working",
+      "location": "Live Room B",
+      "bookedTo": "",
+      "perishablesHistory": [
+        {
+          "name": "Remo Ambassador 14\" Snare Skin",
+          "assignedAt": "2026-10-15 11:30"
+        }
+      ]
+    },
+    {
+      "id": "ast-6",
+      "code": "CAB-102",
+      "serial": "N/A",
+      "manufacturer": "Mogami",
+      "model": "XLR Cable 10m",
+      "category": "Other",
+      "subcategory": "XLR",
+      "condition": "Missing",
+      "location": "Store",
+      "bookedTo": "",
+      "perishablesHistory": []
+    },
+    {
+      "id": "ast-7",
+      "code": "MIX-001",
+      "serial": "SN-77110",
+      "manufacturer": "SSL",
+      "model": "Matrix 2",
+      "category": "Mixer",
+      "subcategory": "Analog Console",
+      "condition": "Broken",
+      "location": "Studio A",
+      "bookedTo": "",
+      "perishablesHistory": []
+    }
+  ],
+  "jobs": [
+    {
+      "id": "job-1",
+      "title": "Channel 4 noisy preamp",
+      "roomRef": "Studio A",
+      "assetRef": "MIX-001",
+      "severity": "High",
+      "description": "Channel 4 preamp produces static buzz when gain is raised above +15dB.",
+      "status": "Open",
+      "createdAt": "2026-10-20 09:30",
+      "updatedAt": "2026-10-20 09:30"
+    },
+    {
+      "id": "job-2",
+      "title": "Capsule check required",
+      "roomRef": "Live Room B",
+      "assetRef": "MIC-002",
+      "severity": "Medium",
+      "description": "Slight diaphragm rattling audible under high SPL.",
+      "status": "In Progress",
+      "createdAt": "2026-10-21 14:15",
+      "updatedAt": "2026-10-22 10:00"
+    }
+  ],
+  "stock": [
+    {
+      "id": "stk-1",
+      "name": "Remo Ambassador 14\" Snare Skin",
+      "quantity": 8
+    },
+    {
+      "id": "stk-2",
+      "name": "Remo Powerstroke 3 22\" Head",
+      "quantity": 3
+    },
+    {
+      "id": "stk-3",
+      "name": "D'Addario EXL110 Guitar Strings (10-46)",
+      "quantity": 15
+    },
+    {
+      "id": "stk-4",
+      "name": "Ernie Ball Bass Strings (45-105)",
+      "quantity": 5
+    }
+  ],
+  "updatedAt": "2026-10-26T15:46:49.478Z"
+}
