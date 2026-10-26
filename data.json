@@ -60,7 +60,12 @@
       "condition": "Working",
       "location": "Store",
       "bookedTo": "gc",
-      "perishablesHistory": []
+      "perishablesHistory": [
+        {
+          "name": "Remo Ambassador 14\" Snare Skin",
+          "assignedAt": "2026-10-26 16:07"
+        }
+      ]
     }
   ],
   "jobs": [
@@ -91,7 +96,7 @@
     {
       "id": "stk-1",
       "name": "Remo Ambassador 14\" Snare Skin",
-      "quantity": 8
+      "quantity": 7
     },
     {
       "id": "stk-2",
@@ -114,5 +119,5 @@
       "quantity": 10000
     }
   ],
-  "updatedAt": "2026-10-26T16:05:33.810Z"
+  "updatedAt": "2026-10-26T16:07:31.126Z"
 }
