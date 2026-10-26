@@ -158,11 +158,6 @@
   ],
   "stock": [
     {
-      "id": "stk-1",
-      "name": "Remo Ambassador 14\" Snare Skin",
-      "quantity": 8
-    },
-    {
       "id": "stk-2",
       "name": "Remo Powerstroke 3 22\" Head",
       "quantity": 3
@@ -183,5 +178,5 @@
       "quantity": 10000
     }
   ],
-  "updatedAt": "2026-10-26T15:54:58.361Z"
+  "updatedAt": "2026-10-26T15:55:21.216Z"
 }
