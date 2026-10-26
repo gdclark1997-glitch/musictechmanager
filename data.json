@@ -8,13 +8,6 @@
       "type": "Production Pod"
     },
     {
-      "id": "rm-4",
-      "name": "Main Lecture Hall",
-      "building": "Central Block",
-      "number": "G05",
-      "type": "Teaching Space"
-    },
-    {
       "id": "rm-5",
       "name": "Central Gear Store",
       "building": "Central Block",
@@ -60,12 +53,7 @@
       "condition": "Working",
       "location": "Store",
       "bookedTo": "gc",
-      "perishablesHistory": [
-        {
-          "name": "Remo Ambassador 14\" Snare Skin",
-          "assignedAt": "2026-10-26 16:07"
-        }
-      ]
+      "perishablesHistory": []
     }
   ],
   "jobs": [
@@ -96,7 +84,7 @@
     {
       "id": "stk-1",
       "name": "Remo Ambassador 14\" Snare Skin",
-      "quantity": 7
+      "quantity": 8
     },
     {
       "id": "stk-2",
@@ -119,5 +107,5 @@
       "quantity": 10000
     }
   ],
-  "updatedAt": "2026-10-26T16:07:31.126Z"
+  "updatedAt": "2026-10-26T16:08:54.025Z"
 }
