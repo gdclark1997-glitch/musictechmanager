@@ -63,24 +63,6 @@
       "perishablesHistory": []
     },
     {
-      "id": "ast-5",
-      "code": "DRM-002",
-      "serial": "SN-10294",
-      "manufacturer": "Pearl",
-      "model": "Export Snare 14\"",
-      "category": "Drums",
-      "subcategory": "Snare",
-      "condition": "Working",
-      "location": "Live Room B",
-      "bookedTo": "",
-      "perishablesHistory": [
-        {
-          "name": "Remo Ambassador 14\" Snare Skin",
-          "assignedAt": "2026-10-15 11:30"
-        }
-      ]
-    },
-    {
       "id": "ast-7",
       "code": "MIX-001",
       "serial": "SN-77110",
@@ -158,5 +140,5 @@
       "quantity": 10000
     }
   ],
-  "updatedAt": "2026-10-26T16:02:42.625Z"
+  "updatedAt": "2026-10-26T16:02:56.997Z"
 }
