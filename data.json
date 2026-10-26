@@ -50,24 +50,6 @@
       "perishablesHistory": []
     },
     {
-      "id": "ast-4",
-      "code": "DRM-001",
-      "serial": "SN-10293",
-      "manufacturer": "Pearl",
-      "model": "Export Kick 22\"",
-      "category": "Drums",
-      "subcategory": "Kick",
-      "condition": "Working",
-      "location": "Live Room B",
-      "bookedTo": "",
-      "perishablesHistory": [
-        {
-          "name": "Remo Powerstroke 3 22\" Head",
-          "assignedAt": "2026-10-01 10:00"
-        }
-      ]
-    },
-    {
       "id": "ast-5",
       "code": "DRM-002",
       "serial": "SN-10294",
@@ -163,5 +145,5 @@
       "quantity": 10000
     }
   ],
-  "updatedAt": "2026-10-26T16:01:44.071Z"
+  "updatedAt": "2026-10-26T16:01:56.494Z"
 }
