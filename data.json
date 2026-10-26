@@ -50,19 +50,6 @@
       "perishablesHistory": []
     },
     {
-      "id": "ast-3",
-      "code": "SYN-001",
-      "serial": "SN-40012",
-      "manufacturer": "Moog",
-      "model": "Subsequent 37",
-      "category": "Synth",
-      "subcategory": "Analog",
-      "condition": "Working",
-      "location": "Pod 1",
-      "bookedTo": "",
-      "perishablesHistory": []
-    },
-    {
       "id": "ast-4",
       "code": "DRM-001",
       "serial": "SN-10293",
@@ -176,5 +163,5 @@
       "quantity": 10000
     }
   ],
-  "updatedAt": "2026-10-26T15:56:06.457Z"
+  "updatedAt": "2026-10-26T16:01:44.071Z"
 }
