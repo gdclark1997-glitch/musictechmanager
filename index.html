@@ -952,45 +952,57 @@ async function pushToGitHub() {
 
     if (!user || !repo || !token) return;
 
-    // Debounce: If another change happens within 1.5 seconds, reset the timer 
-    // This stops rapid deletions/edits from clashing and failing.
+    // Debounce window to bundle rapid changes together safely
     clearTimeout(syncTimeout);
     syncTimeout = setTimeout(async () => {
         const apiURL = `https://api.github.com/repos/${user}/${repo}/contents/data.json`;
-        try {
-            let sha = undefined;
-            const checkRes = await fetch(apiURL, {
-                headers: { 'Authorization': `Bearer ${token}`, 'Accept': 'application/vnd.github+json' }
-            });
-            if (checkRes.ok) {
-                const existing = await checkRes.json();
-                sha = existing.sha;
+        
+        // Retry loop to automatically handle any brief GitHub server conflicts
+        let success = false;
+        let attempts = 0;
+
+        while (!success && attempts < 3) {
+            attempts++;
+            try {
+                // 1. ALWAYS fetch the freshest SHA right now
+                let sha = undefined;
+                const checkRes = await fetch(apiURL, {
+                    headers: { 'Authorization': `Bearer ${token}`, 'Accept': 'application/vnd.github+json', 'Cache-Control': 'no-cache' }
+                });
+                if (checkRes.ok) {
+                    const existing = await checkRes.json();
+                    sha = existing.sha;
+                }
+
+                // 2. Prepare current master state payload
+                const masterPayload = { rooms, assets, jobs, stock, updatedAt: new Date().toISOString() };
+                const contentBase64 = btoa(unescape(encodeURIComponent(JSON.stringify(masterPayload, null, 2))));
+
+                // 3. Push to GitHub
+                const putRes = await fetch(apiURL, {
+                    method: 'PUT',
+                    headers: { 'Authorization': `Bearer ${token}`, 'Accept': 'application/vnd.github+json', 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        message: 'Sync update facilities data',
+                        content: contentBase64,
+                        sha: sha
+                    })
+                });
+
+                if (putRes.ok) {
+                    success = true;
+                    console.log("Cloud sync successfully pushed.");
+                } else {
+                    // If GitHub rejected due to a SHA conflict, loop again to get the new SHA and retry
+                    console.warn(`Sync attempt ${attempts} conflicted, retrying...`);
+                    await new Promise(resolve => setTimeout(resolve, 1000)); // wait 1s before retry
+                }
+            } catch (err) {
+                console.error("Background sync network error:", err);
+                break;
             }
-
-            const masterPayload = { rooms, assets, jobs, stock, updatedAt: new Date().toISOString() };
-            const contentBase64 = btoa(unescape(encodeURIComponent(JSON.stringify(masterPayload, null, 2))));
-
-            const putRes = await fetch(apiURL, {
-                method: 'PUT',
-                headers: { 'Authorization': `Bearer ${token}`, 'Accept': 'application/vnd.github+json', 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    message: 'Sync update facilities data',
-                    content: contentBase64,
-                    sha: sha
-                })
-            });
-
-            if (putRes.ok) {
-                showToast("☁️ Cloud synced to GitHub!");
-            } else {
-                const errData = await putRes.json();
-                console.error("GitHub sync conflict:", errData.message);
-                showToast("⚠️ Sync conflict, try clicking Sync Now");
-            }
-        } catch (err) {
-            console.error("Background sync failed:", err);
         }
-    }, 1500); // Waits 1.5 seconds after your last change before pushing
+    }, 500);
 }
 
         function saveLocalDataSilently() {
