@@ -67,20 +67,10 @@
   ],
   "stock": [
     {
-      "id": "stk-3",
-      "name": "D'Addario EXL110 Guitar Strings (10-46)",
-      "quantity": 15
-    },
-    {
-      "id": "stk-4",
-      "name": "Ernie Ball Bass Strings (45-105)",
-      "quantity": 5
-    },
-    {
       "id": "stk-1793029757426",
       "name": "strings",
       "quantity": 10000
     }
   ],
-  "updatedAt": "2026-10-26T16:10:00.647Z"
+  "updatedAt": "2026-10-26T16:14:44.742Z"
 }
