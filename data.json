@@ -63,19 +63,6 @@
       "perishablesHistory": []
     },
     {
-      "id": "ast-7",
-      "code": "MIX-001",
-      "serial": "SN-77110",
-      "manufacturer": "SSL",
-      "model": "Matrix 2",
-      "category": "Mixer",
-      "subcategory": "Analog Console",
-      "condition": "Broken",
-      "location": "Studio A",
-      "bookedTo": "",
-      "perishablesHistory": []
-    },
-    {
       "id": "ast-1793029669706",
       "code": "test",
       "serial": "test",
@@ -140,5 +127,5 @@
       "quantity": 10000
     }
   ],
-  "updatedAt": "2026-10-26T16:02:56.997Z"
+  "updatedAt": "2026-10-26T16:04:03.697Z"
 }
