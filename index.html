@@ -943,40 +943,55 @@
             }
         }
 
-        async function pushToGitHub() {
-            const user = localStorage.getItem('gh_user');
-            const repo = localStorage.getItem('gh_repo');
-            const token = localStorage.getItem('gh_token');
+        let syncTimeout = null;
 
-            if (!user || !repo || !token) return;
+async function pushToGitHub() {
+    const user = localStorage.getItem('gh_user');
+    const repo = localStorage.getItem('gh_repo');
+    const token = localStorage.getItem('gh_token');
 
-            const apiURL = `https://api.github.com/repos/${user}/${repo}/contents/data.json`;
-            try {
-                let sha = undefined;
-                const checkRes = await fetch(apiURL, {
-                    headers: { 'Authorization': `Bearer ${token}`, 'Accept': 'application/vnd.github+json' }
-                });
-                if (checkRes.ok) {
-                    const existing = await checkRes.json();
-                    sha = existing.sha;
-                }
+    if (!user || !repo || !token) return;
 
-                const masterPayload = { rooms, assets, jobs, stock, updatedAt: new Date().toISOString() };
-                const contentBase64 = btoa(unescape(encodeURIComponent(JSON.stringify(masterPayload, null, 2))));
-
-                await fetch(apiURL, {
-                    method: 'PUT',
-                    headers: { 'Authorization': `Bearer ${token}`, 'Accept': 'application/vnd.github+json', 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        message: 'Sync update facilities data',
-                        content: contentBase64,
-                        sha: sha
-                    })
-                });
-            } catch (err) {
-                console.error("Background sync failed:", err);
+    // Debounce: If another change happens within 1.5 seconds, reset the timer 
+    // This stops rapid deletions/edits from clashing and failing.
+    clearTimeout(syncTimeout);
+    syncTimeout = setTimeout(async () => {
+        const apiURL = `https://api.github.com/repos/${user}/${repo}/contents/data.json`;
+        try {
+            let sha = undefined;
+            const checkRes = await fetch(apiURL, {
+                headers: { 'Authorization': `Bearer ${token}`, 'Accept': 'application/vnd.github+json' }
+            });
+            if (checkRes.ok) {
+                const existing = await checkRes.json();
+                sha = existing.sha;
             }
+
+            const masterPayload = { rooms, assets, jobs, stock, updatedAt: new Date().toISOString() };
+            const contentBase64 = btoa(unescape(encodeURIComponent(JSON.stringify(masterPayload, null, 2))));
+
+            const putRes = await fetch(apiURL, {
+                method: 'PUT',
+                headers: { 'Authorization': `Bearer ${token}`, 'Accept': 'application/vnd.github+json', 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    message: 'Sync update facilities data',
+                    content: contentBase64,
+                    sha: sha
+                })
+            });
+
+            if (putRes.ok) {
+                showToast("☁️ Cloud synced to GitHub!");
+            } else {
+                const errData = await putRes.json();
+                console.error("GitHub sync conflict:", errData.message);
+                showToast("⚠️ Sync conflict, try clicking Sync Now");
+            }
+        } catch (err) {
+            console.error("Background sync failed:", err);
         }
+    }, 1500); // Waits 1.5 seconds after your last change before pushing
+}
 
         function saveLocalDataSilently() {
             localStorage.setItem('mt_rooms', JSON.stringify(rooms));
