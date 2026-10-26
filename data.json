@@ -1,6 +1,13 @@
 {
   "rooms": [
     {
+      "id": "rm-2",
+      "name": "Live Room B",
+      "building": "Music Wing",
+      "number": "102",
+      "type": "Rehearsal Room"
+    },
+    {
       "id": "rm-3",
       "name": "Pod 1",
       "building": "Media Center",
@@ -123,19 +130,6 @@
       "location": "Studio A",
       "bookedTo": "",
       "perishablesHistory": []
-    },
-    {
-      "id": "ast-1793029669706",
-      "code": "test",
-      "serial": "test",
-      "manufacturer": "test",
-      "model": "tes",
-      "category": "Microphone",
-      "subcategory": "Standard",
-      "condition": "Working",
-      "location": "Store",
-      "bookedTo": "gc",
-      "perishablesHistory": []
     }
   ],
   "jobs": [
@@ -189,5 +183,5 @@
       "quantity": 10000
     }
   ],
-  "updatedAt": "2026-10-26T15:50:23.772Z"
+  "updatedAt": "2026-10-26T15:54:58.361Z"
 }
