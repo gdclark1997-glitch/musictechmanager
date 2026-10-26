@@ -137,6 +137,19 @@
       "location": "Studio A",
       "bookedTo": "",
       "perishablesHistory": []
+    },
+    {
+      "id": "ast-1793029669706",
+      "code": "test",
+      "serial": "test",
+      "manufacturer": "test",
+      "model": "tes",
+      "category": "Microphone",
+      "subcategory": "Standard",
+      "condition": "Working",
+      "location": "Store",
+      "bookedTo": "gc",
+      "perishablesHistory": []
     }
   ],
   "jobs": [
@@ -185,5 +198,5 @@
       "quantity": 5
     }
   ],
-  "updatedAt": "2026-10-26T15:46:49.478Z"
+  "updatedAt": "2026-10-26T15:47:49.957Z"
 }
