@@ -1,20 +1,5 @@
 {
-  "rooms": [
-    {
-      "id": "rm-3",
-      "name": "Pod 1",
-      "building": "Media Center",
-      "number": "201",
-      "type": "Production Pod"
-    },
-    {
-      "id": "rm-5",
-      "name": "Central Gear Store",
-      "building": "Central Block",
-      "number": "G01",
-      "type": "Store"
-    }
-  ],
+  "rooms": [],
   "assets": [
     {
       "id": "ast-1",
@@ -82,16 +67,6 @@
   ],
   "stock": [
     {
-      "id": "stk-1",
-      "name": "Remo Ambassador 14\" Snare Skin",
-      "quantity": 8
-    },
-    {
-      "id": "stk-2",
-      "name": "Remo Powerstroke 3 22\" Head",
-      "quantity": 3
-    },
-    {
       "id": "stk-3",
       "name": "D'Addario EXL110 Guitar Strings (10-46)",
       "quantity": 15
@@ -107,5 +82,5 @@
       "quantity": 10000
     }
   ],
-  "updatedAt": "2026-10-26T16:08:54.025Z"
+  "updatedAt": "2026-10-26T16:10:00.647Z"
 }
