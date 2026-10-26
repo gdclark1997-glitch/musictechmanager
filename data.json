@@ -1,13 +1,6 @@
 {
   "rooms": [
     {
-      "id": "rm-1",
-      "name": "Studio A",
-      "building": "Music Wing",
-      "number": "101",
-      "type": "Studio"
-    },
-    {
       "id": "rm-2",
       "name": "Live Room B",
       "building": "Music Wing",
@@ -203,5 +196,5 @@
       "quantity": 10000
     }
   ],
-  "updatedAt": "2026-10-26T15:49:17.433Z"
+  "updatedAt": "2026-10-26T15:49:52.282Z"
 }
